@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">userprofile</string>
     <string name="top_background_description">Kaer Morhen Fortress in the sun and smog</string>
+    <string name="avatar_description">Geralt of Rivia</string>
+    <string name="subscribers">Subscribers</string>
+    <string name="subscriptions">Subscriptions</string>
+    <string name="posts">Posts</string>
+    <string name="subscribe_button">Subscribe</string>
+    <string name="message_button">Message</string>
 </resources>
