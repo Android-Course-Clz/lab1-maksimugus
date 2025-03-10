@@ -9,6 +9,7 @@
         android:id="@+id/cover"
         android:layout_width="match_parent"
         android:layout_height="150dp"
+        android:contentDescription="@string/cover_description"
         android:scaleType="centerCrop"
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@drawable/placeholder" />
@@ -18,6 +19,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="8dp"
+        android:contentDescription="@string/avatar_description"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -1,8 +1,8 @@
 package ru.mchernyaev.lab1
 
 data class Header(
-    val backgroundURL: String,
-    val backGroundDescription: String,
+    val coverURL: String,
+    val coverDescription: String,
     val avatarURL: String,
     val avatarDescription: String,
     val username: String,

@@ -40,9 +40,9 @@ class HeaderAdapter(
             subscriptionsNumberTextView.text = header.subscriptionsNumber.toString()
             postsNumberTextView.text = postCount.toString()
 
-            if (header.backgroundURL.isNotBlank()) {
+            if (header.coverURL.isNotBlank()) {
                 Glide.with(itemView.context)
-                    .load(header.backgroundURL)
+                    .load(header.coverURL)
                     .placeholder(R.drawable.placeholder)
                     .error(R.drawable.error)
                     .into(coverImageView)
