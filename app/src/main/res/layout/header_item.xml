@@ -1,0 +1,125 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!-- Header Section -->
+    <ImageView
+        android:id="@+id/cover"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/placeholder" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/avatar"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="-50dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cover"
+        app:shapeAppearanceOverlay="@style/Avatar" />
+
+    <TextView
+        android:id="@+id/username"
+        style="@style/UsernameStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/avatar" />
+
+    <!-- Stats Section -->
+    <TextView
+        android:id="@+id/subscribers_number_title"
+        style="@style/StatsStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/subscribers_number_title"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@id/subscriptions_number_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/subscribers_number" />
+
+    <TextView
+        android:id="@+id/subscriptions_number_title"
+        style="@style/StatsStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/subscriptions_number_title"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@id/posts_number_title"
+        app:layout_constraintStart_toEndOf="@id/subscribers_number_title"
+        app:layout_constraintTop_toBottomOf="@id/subscriptions_number" />
+
+    <TextView
+        android:id="@+id/posts_number_title"
+        style="@style/StatsStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/posts_number_title"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/subscriptions_number_title"
+        app:layout_constraintTop_toBottomOf="@id/posts_number" />
+
+    <TextView
+        android:id="@+id/subscribers_number"
+        style="@style/StatsStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@id/subscriptions_number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/username" />
+
+    <TextView
+        android:id="@+id/subscriptions_number"
+        style="@style/StatsStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@id/posts_number"
+        app:layout_constraintStart_toEndOf="@id/subscribers_number"
+        app:layout_constraintTop_toBottomOf="@id/username" />
+
+    <TextView
+        android:id="@+id/posts_number"
+        style="@style/StatsStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/subscriptions_number"
+        app:layout_constraintTop_toBottomOf="@id/username" />
+
+    <!-- Buttons Section -->
+    <Button
+        android:id="@+id/subscribe_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/subscribe_button_text"
+        app:layout_constraintEnd_toStartOf="@id/message_button"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/subscribers_number_title" />
+
+    <Button
+        android:id="@+id/message_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/message_button_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/subscribe_button"
+        app:layout_constraintTop_toBottomOf="@id/posts_number_title" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

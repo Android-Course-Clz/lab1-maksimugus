@@ -1,10 +1,15 @@
 <resources>
     <string name="app_name">userprofile</string>
-    <string name="top_background_description">Kaer Morhen Fortress in the sun and smog</string>
-    <string name="avatar_description">Geralt of Rivia</string>
-    <string name="subscribers">Subscribers</string>
-    <string name="subscriptions">Subscriptions</string>
-    <string name="posts">Posts</string>
-    <string name="subscribe_button">Subscribe</string>
-    <string name="message_button">Message</string>
+    <string name="subscribers_number_title">Подписчики</string>
+    <string name="subscriptions_number_title">Подписки</string>
+    <string name="posts_number_title">Посты</string>
+    <string name="subscribe_button_text">ПОДПИСАТЬСЯ</string>
+    <string name="message_button_text">СООБЩЕНИЕ</string>
+
+    <string name="like_button_description">Кнопка лайка</string>
+    <string name="comment_button_description">Кнопка комментария</string>
+    <string name="forward_button_description">Кнопка поделиться</string>
+    <string name="post_image_description">Posted image</string>
+    <string name="avatar_description">User profile photo</string>
+    <string name="cover_description">User profile cover</string>
 </resources>
