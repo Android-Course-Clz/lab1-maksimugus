@@ -11,15 +11,21 @@ fun postsList(): List<Post> {
         ),
         Post(
             2,
-            "Плотва всему голова!",
+            "Плотва - всему голова!",
             "https://clck.ru/3HCJZp",
             "Геральт с головой Плотвы"
         ),
         Post(
             3,
-            "",
-            "https://clck.ru/3HCP9z",
+            "Ненавижу порталы!",
+            "https://clck.ru/3HHeNJ",
             "Геральт у портала"
+        ),
+        Post(
+            4,
+            "",
+            "https://clck.ru/3HHeTp",
+            ""
         )
     )
 }

@@ -30,41 +30,57 @@ class HeaderAdapter(
         init {
             subscribeButton.setOnClickListener {
                 isSubscribed = !isSubscribed
-                updateSubscribeButtonText()
+                updateViewOnSubscribe()
             }
         }
 
         fun bind(header: Header, postCount: Int) {
-            Glide.with(itemView.context)
-                .load(header.backgroundURL)
-                .placeholder(R.drawable.placeholder)
-                .error(R.drawable.error)
-                .into(coverImageView)
-
-            Glide.with(itemView.context)
-                .load(header.avatarURL)
-                .placeholder(R.drawable.placeholder)
-                .error(R.drawable.error)
-                .into(avatarImageView)
-
             usernameTextView.text = header.username
             subscribersNumberTextView.text = header.subscribersNumber.toString()
             subscriptionsNumberTextView.text = header.subscriptionsNumber.toString()
             postsNumberTextView.text = postCount.toString()
 
+            if (header.backgroundURL.isNotBlank()) {
+                Glide.with(itemView.context)
+                    .load(header.backgroundURL)
+                    .placeholder(R.drawable.placeholder)
+                    .error(R.drawable.error)
+                    .into(coverImageView)
+            }
 
+            if (header.avatarURL.isNotBlank()) {
+                Glide.with(itemView.context)
+                    .load(header.avatarURL)
+                    .placeholder(R.drawable.placeholder)
+                    .error(R.drawable.error)
+                    .into(avatarImageView)
+            }
         }
 
-        private fun updateSubscribeButtonText() {
+        private fun updateViewOnSubscribe() {
             val context = itemView.context
             if (isSubscribed) {
                 subscribeButton.text = "Отписаться"
                 subscribeButton.backgroundTintList =
-                    ColorStateList.valueOf(ContextCompat.getColor(context, R.color.purple_500))
+                    ColorStateList.valueOf(
+                        ContextCompat.getColor(
+                            context,
+                            R.color.colorPrimaryVariant
+                        )
+                    )
+                updateSubscribersNumber(+1)
             } else {
                 subscribeButton.text = "Подписаться"
                 subscribeButton.backgroundTintList =
-                    ColorStateList.valueOf(ContextCompat.getColor(context, R.color.purple_700))
+                    ColorStateList.valueOf(ContextCompat.getColor(context, R.color.colorSecondary))
+                updateSubscribersNumber(-1)
+            }
+        }
+
+        private fun updateSubscribersNumber(delta: Int) {
+            subscribersNumberTextView.let {
+                val curSubsNumber = it.text.toString().toInt()
+                it.text = (curSubsNumber + delta).toString()
             }
         }
     }

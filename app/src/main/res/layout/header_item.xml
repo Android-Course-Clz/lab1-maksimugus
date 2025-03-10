@@ -17,26 +17,26 @@
         android:id="@+id/avatar"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="-50dp"
+        android:layout_marginTop="8dp"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cover"
-        app:shapeAppearanceOverlay="@style/Avatar" />
+        app:shapeAppearanceOverlay="@style/CircleImage" />
 
     <TextView
         android:id="@+id/username"
-        style="@style/UsernameStyle"
+        style="@style/Username"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/avatar" />
 
     <!-- Stats Section -->
     <TextView
         android:id="@+id/subscribers_number_title"
-        style="@style/StatsStyle"
+        style="@style/Stats"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -49,7 +49,7 @@
 
     <TextView
         android:id="@+id/subscriptions_number_title"
-        style="@style/StatsStyle"
+        style="@style/Stats"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -62,7 +62,7 @@
 
     <TextView
         android:id="@+id/posts_number_title"
-        style="@style/StatsStyle"
+        style="@style/Stats"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -75,7 +75,7 @@
 
     <TextView
         android:id="@+id/subscribers_number"
-        style="@style/StatsStyle"
+        style="@style/Stats"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toStartOf="@id/subscriptions_number"
@@ -84,7 +84,7 @@
 
     <TextView
         android:id="@+id/subscriptions_number"
-        style="@style/StatsStyle"
+        style="@style/Stats"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toStartOf="@id/posts_number"
@@ -93,7 +93,7 @@
 
     <TextView
         android:id="@+id/posts_number"
-        style="@style/StatsStyle"
+        style="@style/Stats"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"

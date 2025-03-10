@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -25,11 +26,11 @@ class PostsAdapter : ListAdapter<Post, PostsAdapter.PostViewHolder>(PostDiffCall
 
         init {
             commentButton.setOnClickListener {
-                addOnClickAnimationToButton(commentButton)
+                addOnClickAnimationToButton(commentButton, "Комментарий")
             }
 
             shareButton.setOnClickListener {
-                addOnClickAnimationToButton(shareButton)
+                addOnClickAnimationToButton(shareButton, "Поделиться")
             }
         }
 
@@ -58,7 +59,7 @@ class PostsAdapter : ListAdapter<Post, PostsAdapter.PostViewHolder>(PostDiffCall
             }
         }
 
-        private fun addOnClickAnimationToButton(button: ImageView) {
+        private fun addOnClickAnimationToButton(button: ImageView, popupText: String) {
             val context = itemView.context
             val scaleUp = AnimationUtils.loadAnimation(context, R.anim.scale_up)
             val scaleDown = AnimationUtils.loadAnimation(context, R.anim.scale_down)
@@ -68,6 +69,8 @@ class PostsAdapter : ListAdapter<Post, PostsAdapter.PostViewHolder>(PostDiffCall
             Handler(Looper.getMainLooper()).postDelayed({
                 button.startAnimation(scaleDown)
             }, 100)
+
+            Toast.makeText(context, popupText, Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -79,16 +82,24 @@ class PostsAdapter : ListAdapter<Post, PostsAdapter.PostViewHolder>(PostDiffCall
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
         val post = getItem(position)
-        val isLiked: Boolean = likedPosts[post.id] ?: false
+        val isLiked: Boolean = isPostLiked(post.id)
 
         holder.bind(post, isLiked)
 
         holder.likeButton.setOnClickListener {
-            val newIsLiked = !isLiked
-            likedPosts[post.id] = newIsLiked
+            val newIsLiked = toggleLike(post.id)
             holder.updateLikeButton(newIsLiked)
-            notifyItemChanged(position)
         }
+    }
+
+    private fun isPostLiked(postId: Int): Boolean {
+        return likedPosts[postId] ?: false
+    }
+
+    private fun toggleLike(postId: Int): Boolean {
+        val isLiked = isPostLiked(postId)
+        likedPosts[postId] = !isLiked
+        return !isLiked
     }
 }
 
