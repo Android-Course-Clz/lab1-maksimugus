@@ -14,6 +14,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@drawable/placeholder" />
 
+<!--    TODO: заменить на обычный image view -->
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/avatar"
         android:layout_width="100dp"

@@ -24,7 +24,7 @@ class HeaderAdapter(
             itemView.findViewById(R.id.subscriptions_number)
         private val postsNumberTextView: TextView = itemView.findViewById(R.id.posts_number)
         private val subscribeButton: Button = itemView.findViewById(R.id.subscribe_button)
-        private var isSubscribed: Boolean = false
+        private var isSubscribed: Boolean = false // TODO: перенести в header
 
         init {
             subscribeButton.setOnClickListener {
@@ -47,6 +47,8 @@ class HeaderAdapter(
                     .into(coverImageView)
             }
 
+            // TODO: добавить else
+
             if (header.avatarURL.isNotBlank()) {
                 Glide.with(itemView.context)
                     .load(header.avatarURL)
@@ -54,6 +56,8 @@ class HeaderAdapter(
                     .error(R.drawable.error)
                     .into(avatarImageView)
             }
+
+            // TODO: добавить else
         }
 
         private fun updateViewOnSubscribe() {

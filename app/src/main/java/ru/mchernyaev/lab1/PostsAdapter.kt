@@ -28,12 +28,12 @@ class PostsAdapter : ListAdapter<Post, PostsAdapter.PostViewHolder>(PostDiffCall
             val context = itemView.context
             commentButton.setOnClickListener {
                 addOnClickAnimationToButton(commentButton)
-                addPopup(context.getString(R.string.comment_popup))
+                addToast(context.getString(R.string.comment_popup))
             }
 
             shareButton.setOnClickListener {
                 addOnClickAnimationToButton(shareButton)
-                addPopup(context.getString(R.string.share_popup))
+                addToast(context.getString(R.string.share_popup))
             }
         }
 
@@ -68,13 +68,13 @@ class PostsAdapter : ListAdapter<Post, PostsAdapter.PostViewHolder>(PostDiffCall
             val scaleDown = AnimationUtils.loadAnimation(context, R.anim.scale_down)
 
             button.startAnimation(scaleUp)
-
+//            TODO: use itemView.post()
             Handler(Looper.getMainLooper()).postDelayed({
                 button.startAnimation(scaleDown)
-            }, 100)
+            }, 100) // TODO: remove
         }
 
-        private fun addPopup(popupText: String) {
+        private fun addToast(popupText: String) {
             Toast.makeText(itemView.context, popupText, Toast.LENGTH_SHORT).show()
         }
     }
@@ -95,18 +95,18 @@ class PostsAdapter : ListAdapter<Post, PostsAdapter.PostViewHolder>(PostDiffCall
             val newIsLiked = toggleLike(post.id)
             holder.addOnClickAnimationToButton(holder.likeButton)
             holder.updateLikeButton(newIsLiked)
-        }
+        } // TODO: перенести в holder
     }
 
     private fun isPostLiked(postId: Int): Boolean {
         return likedPosts[postId] ?: false
-    }
+    } // TODO: перенести в holder
 
     private fun toggleLike(postId: Int): Boolean {
         val isLiked = isPostLiked(postId)
         likedPosts[postId] = !isLiked
         return !isLiked
-    }
+    } // TODO: перенести в holder
 }
 
 object PostDiffCallback : DiffUtil.ItemCallback<Post>() {

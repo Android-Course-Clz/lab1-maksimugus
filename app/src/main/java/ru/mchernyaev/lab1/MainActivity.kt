@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
+//TODO: заменить svg на векторы
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,7 +16,7 @@ class MainActivity : AppCompatActivity() {
 
         val header = Header(
             "https://clck.ru/3GmQLw",
-            "Кре",
+            "Крепость Каэр-Морхен в лучах солнца и тумане",
             "https://clck.ru/3Gp95p",
             "Геральт улыбается",
             "Геральт Ривийский",
