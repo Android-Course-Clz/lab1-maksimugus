@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
@@ -60,19 +59,14 @@ class HeaderAdapter(
         private fun updateViewOnSubscribe() {
             val context = itemView.context
             if (isSubscribed) {
-                subscribeButton.text = "Отписаться"
+                subscribeButton.text = context.getString(R.string.unsubscribe_button_text)
                 subscribeButton.backgroundTintList =
-                    ColorStateList.valueOf(
-                        ContextCompat.getColor(
-                            context,
-                            R.color.colorPrimaryVariant
-                        )
-                    )
+                    ColorStateList.valueOf(context.getColor(R.color.colorPrimaryVariant))
                 updateSubscribersNumber(+1)
             } else {
-                subscribeButton.text = "Подписаться"
+                subscribeButton.text = context.getString(R.string.subscribe_button_text)
                 subscribeButton.backgroundTintList =
-                    ColorStateList.valueOf(ContextCompat.getColor(context, R.color.colorSecondary))
+                    ColorStateList.valueOf(context.getColor(R.color.colorPrimary))
                 updateSubscribersNumber(-1)
             }
         }

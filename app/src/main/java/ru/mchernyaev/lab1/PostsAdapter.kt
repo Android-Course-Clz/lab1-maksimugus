@@ -25,12 +25,15 @@ class PostsAdapter : ListAdapter<Post, PostsAdapter.PostViewHolder>(PostDiffCall
         val likeButton: ImageView = itemView.findViewById(R.id.like_button)
 
         init {
+            val context = itemView.context
             commentButton.setOnClickListener {
-                addOnClickAnimationToButton(commentButton, "Комментарий")
+                addOnClickAnimationToButton(commentButton)
+                addPopup(context.getString(R.string.comment_popup))
             }
 
             shareButton.setOnClickListener {
-                addOnClickAnimationToButton(shareButton, "Поделиться")
+                addOnClickAnimationToButton(shareButton)
+                addPopup(context.getString(R.string.share_popup))
             }
         }
 
@@ -59,7 +62,7 @@ class PostsAdapter : ListAdapter<Post, PostsAdapter.PostViewHolder>(PostDiffCall
             }
         }
 
-        private fun addOnClickAnimationToButton(button: ImageView, popupText: String) {
+        fun addOnClickAnimationToButton(button: ImageView) {
             val context = itemView.context
             val scaleUp = AnimationUtils.loadAnimation(context, R.anim.scale_up)
             val scaleDown = AnimationUtils.loadAnimation(context, R.anim.scale_down)
@@ -69,8 +72,10 @@ class PostsAdapter : ListAdapter<Post, PostsAdapter.PostViewHolder>(PostDiffCall
             Handler(Looper.getMainLooper()).postDelayed({
                 button.startAnimation(scaleDown)
             }, 100)
+        }
 
-            Toast.makeText(context, popupText, Toast.LENGTH_SHORT).show()
+        private fun addPopup(popupText: String) {
+            Toast.makeText(itemView.context, popupText, Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -88,6 +93,7 @@ class PostsAdapter : ListAdapter<Post, PostsAdapter.PostViewHolder>(PostDiffCall
 
         holder.likeButton.setOnClickListener {
             val newIsLiked = toggleLike(post.id)
+            holder.addOnClickAnimationToButton(holder.likeButton)
             holder.updateLikeButton(newIsLiked)
         }
     }
