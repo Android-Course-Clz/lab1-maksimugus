@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">userprofile</string>
+    <string name="subscribers_number_title">Подписчики</string>
+    <string name="subscriptions_number_title">Подписки</string>
+    <string name="posts_number_title">Посты</string>
+    <string name="subscribe_button_text">ПОДПИСАТЬСЯ</string>
+    <string name="unsubscribe_button_text">ОТПИСАТЬСЯ</string>
+    <string name="message_button_text">СООБЩЕНИЕ</string>
+
+    <string name="like_button_description">Кнопка лайка</string>
+    <string name="comment_button_description">Кнопка комментария</string>
+    <string name="forward_button_description">Кнопка поделиться</string>
+    <string name="post_image_description">Изображение из поста</string>
+    <string name="avatar_description">Фото профиля</string>
+    <string name="cover_description">Обложка профиля</string>
+
+    <string name="comment_popup">Комментарий</string>
+    <string name="share_popup">Поделиться</string>
+</resources>
